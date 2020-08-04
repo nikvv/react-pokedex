@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PokemonCard from './components/PokemonCard.js'
 import Hero from './components/Hero.js'
+import Footer from './components/Footer.js'
 export default class App extends Component {
   constructor() {
     super()
@@ -29,13 +30,14 @@ export default class App extends Component {
         <div className="columns is-multiline">
              {
         pokemons.map(pokemon => (
-          <div key={pokemon.name}  className="column is-2">
+          <div key={pokemon.name}  className="column is-2-widescreen is-3-tablet is-full-mobile">
           <PokemonCard pokemon={pokemon} />
           </div>
 
         ))
         }
       </div>
+      <Footer />
         </div>
       </section>
 
