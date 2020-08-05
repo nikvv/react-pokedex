@@ -9,7 +9,7 @@ export default function PokemonList() {
             data: pokemons, 
             loading: loadingPokemons, 
             error: errorPokemons, 
-          } = useFetch("https://pokeapi.co/api/v2/pokemon/?limit=201")
+          } = useFetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
 
       return (
             <section className="flex flex-wrap">
