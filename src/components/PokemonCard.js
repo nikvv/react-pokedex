@@ -45,7 +45,7 @@ export default function PokemonCard({ pokemon }) {
                               </div>
                               {/* Image */}
                               <div className="text-center">
-                                    <img className="display-block mx-auto" src={detail.sprites.front_default} alt="pokemon" />
+                                    <img className="w-32 h-32 display-block mx-auto" src={detail.sprites.front_default} alt="pokemon" />
                               </div>
 
                               {/* Content Status */}

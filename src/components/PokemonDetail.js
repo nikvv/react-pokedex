@@ -36,8 +36,8 @@ export default function PokemonDetail({ detail }) {
                               }</div>
                               {/* Sprite Image */}
                               <div className="text-center flex content-between justify-center mt-4">
-                                    <img className="display-block" src={detail.sprites.back_default} alt="pokemon" />
-                                    <img className="display-block" src={detail.sprites.front_default} alt="pokemon" />
+                                    <img className="w-40 h-40" src={detail.sprites.back_default} alt="pokemon" />
+                                    <img className="w-40 h-40" src={detail.sprites.front_default} alt="pokemon" />
 
                               </div>
 
