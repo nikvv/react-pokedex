@@ -1,22 +1,33 @@
 import React from 'react'
 
-import StatusBar from './StatusBar.js'
 import useFetch from '../hooks/useFetch.js'
+
+import {
+      useHistory
+    } from 'react-router-dom'
 
 export default function PokemonCard({pokemon}) {
 
+      const history = useHistory()
       const { 
             data: detail, 
-            loading: loadingPokemons, 
-            error: errorPokemons, 
+            loading, 
+       
           } = useFetch(pokemon.url)
-      if(detail.sprites) {
+
+          function toDetail(id) {
+            history.push(`/pokemon/${id}`)
+      }
+      
+      if(!loading) {
       console.log(detail);
+
+
       return (
             
             <>
              {/* Container  */}
-            <div className="lg:w-1/3 md:w-1/2 w-full mt-4 md:p-3">
+            <div className="lg:w-1/4 md:w-1/2 w-full mt-4 md:p-3">
                   {/* Card */}
                   <div className="w-full bg-gray-100 shadow-lg">
 
@@ -31,20 +42,14 @@ export default function PokemonCard({pokemon}) {
 
                   {/* Content Status */}
                   <div className="w-full p-6">
-                  {
-                  detail.stats.map((status,index) => (
-                        <StatusBar key={index} status={status} />
-                  ))
-                  
-                  }     
                   </div>
                   {/* Footer button */}
                   <footer className="w-full bg-blue-300">
-                     <button className=" w-1/2 py-3 px-4 bg-blue-200 hover:bg-blue-300 text-blue-800 font-medium">Details</button>
+                     <button onClick={() => toDetail(detail.id)} className=" w-1/2 py-3 px-4 bg-blue-200 hover:bg-blue-300 text-blue-800 font-medium">Details</button>
                      <button className=" w-1/2 py-3 px-4 bg-yellow-200 hover:bg-yellow-300 text-yellow-800 font-medium">Favorites</button>      
                   </footer>
-            </div>
                   </div>
+            </div>
             </>
       )
       }

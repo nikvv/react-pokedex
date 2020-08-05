@@ -1,17 +1,45 @@
 import React from 'react';
 
-import Hero from './components/Hero.js'
-import PokemonList from './components/PokemonList.js'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Link,
+  Route
+} from 'react-router-dom'
+
+import {
+  Home,
+  Pokedex,
+  Detail
+} from "./pages"
+
+import Navbar from './components/Navbar.js'
+
 
 
 function App() {
   return (
-    <div className="bg-gray-200">
-      <div className="container mx-auto">
-        <Hero />
-        <PokemonList />
+    <Router>
+      <div className="bg-gray-200">
+        <div className="container mx-auto">
+          <Navbar />
+
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/pokedex">
+              <Pokedex />
+            </Route>
+
+            <Route path="/pokemon/:id">
+              <Detail />
+            </Route>
+          </Switch>
+
+        </div>
       </div>
-    </div>
+    </Router>
 
   );
 }

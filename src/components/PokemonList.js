@@ -7,8 +7,8 @@ import useFetch from '../hooks/useFetch.js'
 export default function PokemonList() {
       const { 
             data: pokemons, 
-            loading: loadingPokemons, 
-            error: errorPokemons, 
+            loading, 
+            error, 
           } = useFetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
 
       return (
