@@ -2,8 +2,8 @@ import React from 'react'
 
 import {
       Link,
-    } from 'react-router-dom'
-    
+} from 'react-router-dom'
+
 
 export default function Navbar() {
       return (
@@ -12,6 +12,7 @@ export default function Navbar() {
                   <span className="text-2xl mx-2">|</span>
                   <Link className="text-xl font-semibold" to="/pokedex">Pokedex</Link>
                   <span className="text-2xl mx-2">|</span>
+                  <Link className="text-xl font-semibold" to="/favorites">Favorites</Link>
             </div>
       )
 }

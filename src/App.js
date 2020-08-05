@@ -3,14 +3,14 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Link,
   Route
 } from 'react-router-dom'
 
 import {
   Home,
   Pokedex,
-  Detail
+  Detail,
+  Favorites
 } from "./pages"
 
 import Navbar from './components/Navbar.js'
@@ -35,6 +35,12 @@ function App() {
             <Route path="/pokemon/:id">
               <Detail />
             </Route>
+
+
+            <Route path="/favorites">
+              <Favorites />
+            </Route>
+
           </Switch>
 
         </div>
