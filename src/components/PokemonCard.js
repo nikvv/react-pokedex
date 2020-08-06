@@ -12,7 +12,7 @@ import {
 import Loader from '../components/Loader'
 
 export default function PokemonCard({ pokemon }) {
-      const favorites = useSelector(state => state.favoritePokemons)
+      const favorites = useSelector(state => state.favoritePokemons.favoritePokemons)
       const dispatch = useDispatch()
       const history = useHistory()
       const {

@@ -1,4 +1,4 @@
-import { ADD_FAVORITE, REMOVE_FAVORITE } from './types'
+import { ADD_FAVORITE, REMOVE_FAVORITE, FETCH_POKEMONS } from './types'
 
 export const addFavorite = (pokemon) => {
       return {
@@ -12,5 +12,19 @@ export const removeFavorite = (name) => {
       return {
             type: REMOVE_FAVORITE,
             payload: name
+      }
+}
+
+
+export const fetchPokemon = (url) => {
+      return (dispatch) => {
+            fetch(url)
+                  .then(data => data.json())
+                  .then(data => {
+                        dispatch({
+                              type: FETCH_POKEMONS,
+                              payload: data
+                        })
+                  })
       }
 }

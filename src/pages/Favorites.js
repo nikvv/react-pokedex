@@ -5,7 +5,7 @@ import PokemonCard from '../components/PokemonCard.js'
 
 export default function Favorites() {
 
-      const favoritePokemons = useSelector(state => state.favoritePokemons)
+      const favoritePokemons = useSelector(state => state.favoritePokemons.favoritePokemons)
 
       console.log()
       return (

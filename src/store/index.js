@@ -1,7 +1,14 @@
 
-import { createStore } from 'redux'
-import favoritePokemons from "./reducers/pokemonReducer"
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import favoritePokemons from "./reducers/favoriteReducer"
+import allPokemons from "./reducers/pokemonReducer"
 
-const store = createStore(favoritePokemons)
+const reducers = combineReducers({
+      favoritePokemons,
+      allPokemons
+})
+
+const store = createStore(reducers, applyMiddleware(thunk))
 
 export default store;

@@ -1,20 +1,17 @@
-import { ADD_FAVORITE, REMOVE_FAVORITE } from "../actions/types.js"
+import { FETCH_POKEMONS } from '../actions/types'
 
-const initializeState = {
-      favoritePokemons: [],
+const initialState = {
+      data: [],
       loading: false
 }
 
-export default (state = initializeState, action) => {
-      console.log(action)
-      console.log(state)
+export default (state = initialState, action) => {
       switch (action.type) {
-            case ADD_FAVORITE:
-                  return { loading: false, favoritePokemons: [action.payload, ...state.favoritePokemons] }
-            case REMOVE_FAVORITE:
-                  console.log('REDUCER REMOVE>>>>>>>>>>>>>>')
-                  return { loading: false, favoritePokemons: state.favoritePokemons.filter(pokemon => pokemon.name !== action.payload) }
+
+            case FETCH_POKEMONS:
+                  return { loading: false, data: action.payload }
+
             default:
-                  return state;
+                  return state
       }
 }
