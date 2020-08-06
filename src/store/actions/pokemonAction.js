@@ -1,4 +1,4 @@
-import { ADD_FAVORITE, REMOVE_FAVORITE, FETCH_POKEMONS } from './types'
+import { ADD_FAVORITE, REMOVE_FAVORITE, FETCH_POKEMONS, SET_FETCH_POKEMON_LOADING } from './types'
 
 export const addFavorite = (pokemon) => {
       return {
@@ -15,16 +15,30 @@ export const removeFavorite = (name) => {
       }
 }
 
+export const setFetchPokemonLoading = (value) => {
+      return {
+            type: SET_FETCH_POKEMON_LOADING,
+            payload: value
+      }
+}
 
 export const fetchPokemon = (url) => {
       return (dispatch) => {
-            fetch(url)
-                  .then(data => data.json())
-                  .then(data => {
+            async function fetchData() {
+                  dispatch(setFetchPokemonLoading(true))
+                  try {
+                        const data = await (await fetch(url)).json()
                         dispatch({
                               type: FETCH_POKEMONS,
                               payload: data
                         })
-                  })
+                  } catch (error) {
+                        console.log(error)
+                  }
+                  finally {
+                        dispatch(setFetchPokemonLoading(false))
+                  }
+            }
+            fetchData()
       }
 }

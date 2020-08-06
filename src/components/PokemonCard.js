@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import useFetch from '../hooks/useFetch.js'
 
@@ -10,11 +10,14 @@ import {
 } from 'react-router-dom'
 
 import Loader from '../components/Loader'
+import { Theme } from '../App.js'
 
 export default function PokemonCard({ pokemon }) {
       const favorites = useSelector(state => state.favoritePokemons.favoritePokemons)
+
       const dispatch = useDispatch()
       const history = useHistory()
+
       const {
             data: detail,
             loading,
@@ -31,12 +34,15 @@ export default function PokemonCard({ pokemon }) {
       function removeFromFavorite(payload) {
             dispatch(removeFavorite(payload))
       }
+      const { value, setColor } = useContext(Theme)
       if (loading) {
             return <Loader />
       }
       const hideButton = document.location.pathname === '/favorites' ? 'hidden' : ''
       let disabled = null
       const favorited = favorites.filter(pokemon => pokemon.name === detail.name);
+
+
       return (
 
             <>
@@ -46,7 +52,7 @@ export default function PokemonCard({ pokemon }) {
                         <div className="w-full bg-gray-100 shadow-lg">
 
                               {/* Header */}
-                              <div className="w-full bg-red-600 shadow">
+                              <div className={`w-full shadow ${value}`}>
                                     <h2 className="text-lg text-gray-100 py-3 px-4 font-semibold capitalize">#{detail.id} {detail.name}</h2>
                               </div>
                               {/* Image */}

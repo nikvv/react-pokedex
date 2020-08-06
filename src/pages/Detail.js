@@ -1,13 +1,12 @@
 import React from 'react'
 
 import PokemonDetail from '../components/PokemonDetail.js'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import useFetch from '../hooks/useFetch.js'
 
 
 export default function Detail() {
       const { id } = useParams()
-      const history = useHistory()
       const {
             data: detail,
             loading,

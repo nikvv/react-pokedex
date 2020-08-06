@@ -14,12 +14,12 @@ export default function PokemonList() {
       //       loading,
       // } = useFetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
       const pokemons = useSelector(state => state.allPokemons.data)
+      const loading = useSelector(state => state.allPokemons.loading)
       console.log(pokemons)
       useEffect(() => {
             dispatch(fetchPokemon(`https://pokeapi.co/api/v2/pokemon/?limit=151`))
       }, [])
-
-      // if (loading) return <Loader />
+      if (loading) return <Loader />
       return (
             <section className="flex flex-wrap">
                   {
