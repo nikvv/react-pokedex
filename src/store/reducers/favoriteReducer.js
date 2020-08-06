@@ -12,7 +12,6 @@ export default (state = initializeState, action) => {
             case ADD_FAVORITE:
                   return { loading: false, favoritePokemons: [action.payload, ...state.favoritePokemons] }
             case REMOVE_FAVORITE:
-                  console.log('REDUCER REMOVE>>>>>>>>>>>>>>')
                   return { loading: false, favoritePokemons: state.favoritePokemons.filter(pokemon => pokemon.name !== action.payload) }
             default:
                   return state;
