@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
   BrowserRouter as Router,
@@ -15,37 +15,49 @@ import {
 
 import Navbar from './components/Navbar.js'
 
-
+export const Theme = React.createContext()
 
 function App() {
+  const [value, setValue] = useState('')
+
   return (
-    <Router>
-      <div className="bg-gray-200">
-        <div className="container mx-auto">
-          <Navbar />
+    <Theme.Provider value={
+      {
+        value,
+        setColor: (data) => setValue(data)
+      }
+    }>
 
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/pokedex">
-              <Pokedex />
-            </Route>
+      <Router>
+        <div className="bg-gray-200">
+          <div className="container mx-auto">
+            <Navbar />
 
-            <Route path="/pokemon/:id">
-              <Detail />
-            </Route>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/pokedex">
+                <Pokedex />
+              </Route>
+
+              <Route path="/pokemon/:id">
+                <Detail />
+              </Route>
 
 
-            <Route path="/favorites">
-              <Favorites />
-            </Route>
+              <Route path="/favorites">
+                <Favorites />
+              </Route>
 
-          </Switch>
+            </Switch>
 
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+
+    </Theme.Provider >
+
 
   );
 }

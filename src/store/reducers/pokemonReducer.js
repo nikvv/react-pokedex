@@ -1,4 +1,4 @@
-import { FETCH_POKEMONS } from '../actions/types'
+import { FETCH_POKEMONS, SET_FETCH_POKEMON_LOADING } from '../actions/types'
 
 const initialState = {
       data: [],
@@ -10,8 +10,11 @@ export default (state = initialState, action) => {
 
             case FETCH_POKEMONS:
                   return { loading: false, data: action.payload }
+            case SET_FETCH_POKEMON_LOADING:
+                  return { ...state, loading: action.payload }
 
             default:
                   return state
       }
 }
+
