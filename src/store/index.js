@@ -1,7 +1,7 @@
 
 import { createStore } from 'redux'
-import pokemon from "./reducers/pokemonReducer"
+import favoritePokemons from "./reducers/pokemonReducer"
 
-const store = createStore(pokemon)
+const store = createStore(favoritePokemons)
 
 export default store;

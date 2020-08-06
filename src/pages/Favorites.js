@@ -5,7 +5,7 @@ import PokemonCard from '../components/PokemonCard.js'
 
 export default function Favorites() {
 
-      const pokemons = useSelector(state => state.pokemons)
+      const favoritePokemons = useSelector(state => state.favoritePokemons)
 
       console.log()
       return (
@@ -13,7 +13,7 @@ export default function Favorites() {
                   <h1 className="text-2xl">INI FAVORITES</h1>
                   <section className="flex flex-wrap">
                         {
-                              pokemons && pokemons.map(pokemon => (
+                              favoritePokemons && favoritePokemons.map(pokemon => (
                                     < PokemonCard key={pokemon.name} pokemon={pokemon} />
                               ))
                         }
