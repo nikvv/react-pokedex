@@ -15,13 +15,13 @@ import {
 
 import Navbar from './components/Navbar.js'
 
-export const Theme = React.createContext()
+export const Context = React.createContext()
 
 function App() {
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState('bg-red-600')
 
   return (
-    <Theme.Provider value={
+    <Context.Provider value={
       {
         value,
         setColor: (data) => setValue(data)
@@ -56,7 +56,7 @@ function App() {
         </div>
       </Router>
 
-    </Theme.Provider >
+    </Context.Provider >
 
 
   );

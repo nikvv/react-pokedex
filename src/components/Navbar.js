@@ -4,11 +4,11 @@ import {
       Link,
 } from 'react-router-dom'
 
-import { Theme } from '../App.js'
+import { Context } from '../App.js'
 
 export default function Navbar() {
       return (
-            <Theme.Consumer>
+            <Context.Consumer>
                   {
                         (({ value, setColor }) => (
                               <div className={`border-b-4 border-gray-900`}>
@@ -22,7 +22,7 @@ export default function Navbar() {
                               </div>
                         ))
                   }
-            </Theme.Consumer>
+            </Context.Consumer>
 
       )
 }

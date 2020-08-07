@@ -10,7 +10,7 @@ import {
 } from 'react-router-dom'
 
 import Loader from '../components/Loader'
-import { Theme } from '../App.js'
+import { Context } from '../App.js'
 
 export default function PokemonCard({ pokemon }) {
       const favorites = useSelector(state => state.favoritePokemons.favoritePokemons)
@@ -34,7 +34,7 @@ export default function PokemonCard({ pokemon }) {
       function removeFromFavorite(payload) {
             dispatch(removeFavorite(payload))
       }
-      const { value, setColor } = useContext(Theme)
+      const { value, setColor } = useContext(Context)
       if (loading) {
             return <Loader />
       }

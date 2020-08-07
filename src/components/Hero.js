@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 
-import { Theme } from '../App.js'
+import { Context } from '../App.js'
 export default function Hero() {
 
-      const { value, setColor } = useContext(Theme)
+      const { value, setColor } = useContext(Context)
       return (
             <section className="py-12 text-left font-serif">
                   <div className="w-full max-w-2xl">
